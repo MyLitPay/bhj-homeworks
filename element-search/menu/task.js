@@ -9,7 +9,7 @@ for (let i = 0; i < links.length; i++) {
         // console.log(getMenuItem(i));
         let sub = getMenuItem(i).parentElement.querySelector("ul");
         if (sub != null) {
-            sub.setAttribute("class", "menu menu_sub menu_active");
+            sub.classList.toggle("menu_active");
             return false;
         }
     }
