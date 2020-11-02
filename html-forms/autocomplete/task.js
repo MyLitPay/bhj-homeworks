@@ -68,6 +68,19 @@ class Autocomplete {
   }
 
   getMatches( text ) {
+
+    let select = document.querySelector(".autocomplete__input");
+    for (let s of select) {
+    if (s.text.includes(text)) {
+      return [
+        {
+          text: s.text,
+          value: s.value
+        }
+      ]
+    }
+    }
+
     /*
       TODO: этот метод нужно дописать
       text - фраза, которую вводят в поле поиска
