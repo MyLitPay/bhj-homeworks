@@ -69,17 +69,36 @@ class Autocomplete {
 
   getMatches( text ) {
 
-    let select = document.querySelector(".autocomplete__input");
-    for (let s of select) {
-    if (s.text.includes(text)) {
+    let select = document.querySelector(".autocomplete__search");
+    // let cont = document.querySelector(".autocomplete__text-content");
+    if (select.textContent.includes(text)) {
       return [
         {
-          text: s.text,
-          value: s.value
+          text: select.text,
+          value: select.value
+        }
+      ]
+    } else if (select.textContent === "") {
+      return [
+        {
+          text: "Чебурашка",
+          value: "1"
+        },
+        {
+          text: "Чебоксары",
+          value: "2"
+        },
+        {
+          text: "Чемодан",
+          value: "3"
+        },
+        {
+          text: "Чебурек",
+          value: "4"
         }
       ]
     }
-    }
+    // }
 
     /*
       TODO: этот метод нужно дописать
@@ -94,12 +113,12 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+    // return [
+    //   {
+    //     text: 'Чубакка',
+    //     value: '1'
+    //   }
+    // ];
   }
 }
 
