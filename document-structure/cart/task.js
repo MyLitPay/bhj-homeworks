@@ -28,20 +28,18 @@ for (let button of buttonsAdd) {
         let image = parent.querySelector(".product__image").getAttribute("src");
         let count = Number(parent.querySelector(".product__quantity-value").textContent);
 
-        for (let prod of cart.querySelectorAll(".cart__product")) {
-            if (prod.getAttribute("data-id") == dataID) {
-                let oldCount = prod.querySelector(".cart__product-count");
-                count += Number(oldCount.textContent);
-                prod.remove();
-            }
-        }
-
         let cartItem = `<div class="cart__product" data-id="${dataID}">
                             <img class="cart__product-image" src="${image}">
                             <div class="cart__product-count">${count}</div>
                         </div>`;
 
-        cart.insertAdjacentHTML("afterbegin", cartItem);
-
+        let x = Array.from(cart.querySelectorAll(".cart__product"));
+        let z = x.find(e => e.getAttribute("data-id") == dataID);
+        if (z) {
+            let oldCount = z.querySelector(".cart__product-count");
+            oldCount.textContent = Number(oldCount.textContent) + count;
+        } else {
+            cart.insertAdjacentHTML("afterbegin", cartItem);
+        }
     })
 }

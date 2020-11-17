@@ -9,6 +9,7 @@ for (let t of tip) {
         } else {
             t.insertAdjacentHTML("afterend", elem);
             t.nextSibling.style.display = "block";
+            t.nextSibling.style.left = `${t.getBoundingClientRect().x}px`;
         }
         e.preventDefault();
     });
